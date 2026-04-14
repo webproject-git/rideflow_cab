@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RideFlow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MAP -->
+<div id="map"></div>
+
+<!-- APP NAME -->
+<div class="app-title">RideFlow</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <button id="locateBtn">Use My Location</button>
+</div>
+
+<!-- BOTTOM SHEET -->
+<div class="bottom-sheet">
+  <div class="handle"></div>
+
+  <div class="locations">
+
+    <div class="input-group">
+      <input type="text" id="pickup" autocomplete="off" placeholder="Enter Pickup Location">
+      <div class="suggestions" id="pickupSuggestions"></div>
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="drop" autocomplete="off" placeholder="Enter Drop Location">
+      <div class="suggestions" id="dropSuggestions"></div>
+    </div>
+
+    <button id="mapSelectBtn">Select from Map</button>
+
+  </div>
+
+  <div class="ride-options">
+    <div class="ride active" data-price="10">Bike</div>
+    <div class="ride" data-price="15">Mini</div>
+    <div class="ride" data-price="20">Sedan</div>
+  </div>
+
+  <div class="fare">
+    <p>Distance: <span id="distance">0</span> km</p>
+    <p>Fare: ₹<span id="fare">0</span></p>
+  </div>
+
+  <button class="book-btn">Book Ride</button>
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Your JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
