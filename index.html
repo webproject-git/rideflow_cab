@@ -2,69 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RideFlow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RideFlow | Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 
-  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- MAP -->
 <div id="map"></div>
 
-<!-- APP NAME -->
 <div class="app-title">RideFlow</div>
 
-<!-- TOP BAR -->
 <div class="top-bar">
-  <button id="locateBtn">Use My Location</button>
+  <button id="locateBtn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+  </button>
 </div>
 
-<!-- BOTTOM SHEET -->
 <div class="bottom-sheet">
   <div class="handle"></div>
 
   <div class="locations">
-
     <div class="input-group">
+      <div class="dot pickup-dot"></div>
       <input type="text" id="pickup" autocomplete="off" placeholder="Enter Pickup Location">
       <div class="suggestions" id="pickupSuggestions"></div>
     </div>
 
     <div class="input-group">
+      <div class="dot drop-dot"></div>
       <input type="text" id="drop" autocomplete="off" placeholder="Enter Drop Location">
       <div class="suggestions" id="dropSuggestions"></div>
     </div>
 
     <button id="mapSelectBtn">Select from Map</button>
-
   </div>
 
   <div class="ride-options">
-    <div class="ride active" data-price="10">Bike</div>
-    <div class="ride" data-price="15">Mini</div>
-    <div class="ride" data-price="20">Sedan</div>
+    <div class="ride active" data-price="10">
+      <div class="ride-name">Bike</div>
+      <div class="ride-multiplier">₹10/km</div>
+    </div>
+    <div class="ride" data-price="15">
+      <div class="ride-name">Mini</div>
+      <div class="ride-multiplier">₹15/km</div>
+    </div>
+    <div class="ride" data-price="20">
+      <div class="ride-name">Sedan</div>
+      <div class="ride-multiplier">₹20/km</div>
+    </div>
   </div>
 
-  <div class="fare">
-    <p>Distance: <span id="distance">0</span> km</p>
-    <p>Fare: ₹<span id="fare">0</span></p>
+  <div class="trip-details">
+    <div class="detail-box">
+      <span class="label">Distance</span>
+      <span class="value"><span id="distance">0.0</span> km</span>
+    </div>
+    <div class="detail-box">
+      <span class="label">Est. Time</span>
+      <span class="value"><span id="time">0</span> min</span>
+    </div>
+    <div class="detail-box highlight">
+      <span class="label">Total Fare</span>
+      <span class="value">₹<span id="fare">0</span></span>
+    </div>
   </div>
 
-  <button class="book-btn">Book Ride</button>
+  <button class="book-btn">Confirm Ride</button>
 </div>
 
-<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
-<!-- Your JS -->
 <script src="script.js"></script>
 
 </body>
